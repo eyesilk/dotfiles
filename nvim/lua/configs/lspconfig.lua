@@ -17,6 +17,7 @@ lspconfig.ts_ls.setup(setup_arg)
 lspconfig.html.setup(setup_arg)
 lspconfig.cssls.setup(setup_arg)
 lspconfig.prismals.setup(setup_arg)
+lspconfig.dockerls.setup(setup_arg) 
 lspconfig.jsonls.setup {
     settings = {
         json = {

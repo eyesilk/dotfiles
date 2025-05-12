@@ -190,4 +190,12 @@ return {
         "prisma/vim-prisma",
         ft = "prisma",
     },
+    {
+        "ekalinin/Dockerfile.vim",
+        ft = { "Dockerfile", "dockerfile" },
+    },
+    {
+      "pedrohdz/vim-yaml-folds",
+      ft = { "yaml" },
+    }
 }

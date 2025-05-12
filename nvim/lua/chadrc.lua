@@ -38,20 +38,22 @@ M.term = {
 
 -- Отключаем относительную нумерацию при входе в Insert mode
 vim.api.nvim_create_autocmd("InsertEnter", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype ~= "NvimTree" then
-      vim.opt.relativenumber = false
+  callback = function(args)
+    local win = vim.api.nvim_get_current_win()
+    local buf = vim.api.nvim_win_get_buf(win)
+    if vim.bo[buf].filetype ~= "NvimTree" then
+      vim.wo[win].relativenumber = false
     end
   end,
 })
 
 -- Включаем относительную нумерацию при выходе из Insert mode
-vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "*",
-  callback = function()
-    if vim.fn.mode() == "n" and vim.bo.filetype ~= "NvimTree" then
-      vim.opt.relativenumber = true
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function(args)
+    local win = vim.api.nvim_get_current_win()
+    local buf = vim.api.nvim_win_get_buf(win)
+    if vim.bo[buf].filetype ~= "NvimTree" then
+      vim.wo[win].relativenumber = true
     end
   end,
 })
