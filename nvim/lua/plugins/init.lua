@@ -1,6 +1,22 @@
 
 return {
     {
+        "nvimtools/none-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+          local null_ls = require("null-ls")
+      
+          null_ls.setup({
+            sources = {
+              null_ls.builtins.formatting.prettierd.with({
+                filetypes = { "javascript", "typescript", "json", "html", "css", "markdown" },
+              }),
+            },
+          })
+        end,
+    },
+    {
         "williamboman/mason.nvim",
         opts = {
             ensure_installed = {
