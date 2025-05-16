@@ -1,12 +1,4 @@
 return function()
-    vim.cmd [[
-   :hi NvimTreeGitDirty guifg=#ffaa00
-   :hi NvimTreeGitStaged guifg=#ffaa00
-   :hi NvimTreeGitDeleted guifg=#ff0000
-   :hi NvimTreeGitMerge guifg=#00ffff
-   :hi NvimTreeGitNew guifg=#00ff00
-   :hi NvimTreeGitIgnored guifg=#888888
-]]
     local config = require "nvchad.configs.nvimtree"
     config.git = { ignore = false }
     config.on_attach = function(bufnr)
